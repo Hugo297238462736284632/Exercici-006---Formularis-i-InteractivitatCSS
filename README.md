@@ -1,1 +1,0 @@
-# Exercici-006---Formularis-i-InteractivitatCSS
