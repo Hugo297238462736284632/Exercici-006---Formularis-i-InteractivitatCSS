@@ -1,111 +1,180 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulari Personalitzat</title>
-  <link rel="stylesheet" href="estils.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularis Personalitzats</title>
+    <link rel="stylesheet" href="estils.css">
 </head>
 <body id="pagina-formulari">
-  <nav>
-    <a href="index.html">Formulari</a>
-    <a href="interaccio.html">Interactivitat</a>
-  </nav>
-  <main>
-    <h1>Formulari Personalitzat</h1>
-    <form>
-      <!-- Nom complet -->
-      <label for="nom">Nom complet *</label>
-      <input type="text" id="nom" name="nom" required pattern="^[A-ZÀ-ÿ][a-zà-ÿ]+(\s[A-ZÀ-ÿ][a-zà-ÿ]+)+$" title="Introdueix nom i cognoms, començant per majúscula.">
+    <nav>
+        <div class="nav-content">
+            <label for="menu-toggle" class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <input type="checkbox" id="menu-toggle">
+            <ul>
+                <li><a href="index.html">📋 Formulari</a></li>
+                <li><a href="interaccio.html">⚡ Interactivitat</a></li>
+            </ul>
+        </div>
+    </nav>
 
-      <!-- Correu electrònic -->
-      <label for="email">Correu electrònic *</label>
-      <input type="email" id="email" name="email" required>
+    <div class="container">
+        <h1>📋 Formulari Personalitzat</h1>
+        <form>
+            <div class="form-group">
+                <label for="nom">Nom complet *</label>
+                <input 
+                    type="text" 
+                    id="nom" 
+                    name="nom" 
+                    required
+                    pattern="[A-Za-zÀ-ÿ\s]{3,50}"
+                    title="El nom ha de contenir entre 3 i 50 lletres"
+                    placeholder="Joan Garcia">
+            </div>
 
-      <!-- Telèfon -->
-      <label for="telefon">Telèfon *</label>
-      <input type="tel" id="telefon" name="telefon" required pattern="^\d{9}$" title="Introdueix 9 dígits sense espais.">
+            <div class="form-group">
+                <label for="email">Correu electrònic *</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    placeholder="exemple@correu.cat">
+            </div>
 
-      <!-- Edat -->
-      <label for="edat">Edat</label>
-      <input type="number" id="edat" name="edat" min="16" max="120" step="1">
+            <div class="form-group">
+                <label for="telefon">Telèfon</label>
+                <input 
+                    type="tel" 
+                    id="telefon" 
+                    name="telefon"
+                    pattern="[0-9]{9}"
+                    title="El telèfon ha de tenir 9 dígits"
+                    placeholder="612345678">
+            </div>
 
-      <!-- Data de naixement -->
-      <label for="naixement">Data de naixement</label>
-      <input type="date" id="naixement" name="naixement">
+            <div class="form-group">
+                <label for="edat">Edat</label>
+                <input 
+                    type="number" 
+                    id="edat" 
+                    name="edat"
+                    min="18"
+                    max="99"
+                    step="1"
+                    value="25">
+            </div>
 
-      <!-- Franja horària -->
-      <label for="hora">Franja horària</label>
-      <input type="time" id="hora" name="hora">
+            <div class="form-group">
+                <label for="naixement">Data de naixement</label>
+                <input 
+                    type="date" 
+                    id="naixement" 
+                    name="naixement">
+            </div>
 
-      <!-- Color preferit -->
-      <label for="color">Color preferit</label>
-      <input type="color" id="color" name="color">
+            <div class="form-group">
+                <label for="hora">Franja horària preferida</label>
+                <input 
+                    type="time" 
+                    id="hora" 
+                    name="hora">
+            </div>
 
-      <!-- Control lliscant -->
-      <label for="range">Satisfacció (0-10)</label>
-      <input type="range" id="range" name="range" min="0" max="10" step="1">
+            <div class="form-group">
+                <label for="color">Color preferit</label>
+                <input 
+                    type="color" 
+                    id="color" 
+                    name="color"
+                    value="#667eea">
+            </div>
 
-      <!-- Aficions (checkbox múltiple) -->
-      <fieldset>
-        <legend>Aficions</legend>
-        <label class="checkbox-custom">
-          <input type="checkbox" name="aficions" value="lectura">
-          <span class="checkmark"></span>
-          Lectura
-        </label>
-        <label class="checkbox-custom">
-          <input type="checkbox" name="aficions" value="esport">
-          <span class="checkmark"></span>
-          Esport
-        </label>
-        <label class="checkbox-custom">
-          <input type="checkbox" name="aficions" value="musica">
-          <span class="checkmark"></span>
-          Música
-        </label>
-      </fieldset>
+            <div class="form-group">
+                <label for="satisfaccio">Nivell de satisfacció</label>
+                <input 
+                    type="range" 
+                    id="satisfaccio" 
+                    name="satisfaccio"
+                    min="0"
+                    max="10"
+                    value="5">
+            </div>
 
-      <!-- Nivell d’estudis (radio) -->
-      <fieldset>
-        <legend>Nivell d’estudis</legend>
-        <label class="radio-custom">
-          <input type="radio" name="estudis" value="eso" required>
-          <span class="radiomark"></span>
-          ESO
-        </label>
-        <label class="radio-custom">
-          <input type="radio" name="estudis" value="batxillerat">
-          <span class="radiomark"></span>
-          Batxillerat
-        </label>
-        <label class="radio-custom">
-          <input type="radio" name="estudis" value="universitat">
-          <span class="radiomark"></span>
-          Universitat
-        </label>
-      </fieldset>
+            <div class="form-group">
+                <label>Aficions</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="esport" name="aficions" value="esport">
+                        <label for="esport">Esport</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="lectura" name="aficions" value="lectura">
+                        <label for="lectura">Lectura</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="musica" name="aficions" value="musica">
+                        <label for="musica">Música</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="tecnologia" name="aficions" value="tecnologia">
+                        <label for="tecnologia">Tecnologia</label>
+                    </div>
+                </div>
+            </div>
 
-      <!-- País (select) -->
-      <label for="pais">País</label>
-      <select id="pais" name="pais">
-        <option value="">-- Selecciona --</option>
-        <option value="es">Espanya</option>
-        <option value="fr">França</option>
-        <option value="it">Itàlia</option>
-        <option value="pt">Portugal</option>
-      </select>
+            <div class="form-group">
+                <label>Nivell d'estudis</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="eso" name="estudis" value="eso">
+                        <label for="eso">ESO</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="batxillerat" name="estudis" value="batxillerat">
+                        <label for="batxillerat">Batxillerat</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="fp" name="estudis" value="fp">
+                        <label for="fp">Formació Professional</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="universitat" name="estudis" value="universitat">
+                        <label for="universitat">Universitat</label>
+                    </div>
+                </div>
+            </div>
 
-      <!-- Comentaris -->
-      <label for="comentaris">Comentaris</label>
-      <textarea id="comentaris" name="comentaris" rows="3"></textarea>
+            <div class="form-group">
+                <label for="pais">País</label>
+                <select id="pais" name="pais">
+                    <option value="">Selecciona un país</option>
+                    <option value="espanya">Espanya</option>
+                    <option value="frança">França</option>
+                    <option value="italia">Itàlia</option>
+                    <option value="alemanya">Alemanya</option>
+                    <option value="portugal">Portugal</option>
+                </select>
+            </div>
 
-      <!-- Botons -->
-      <div class="botons">
-        <button type="submit">Enviar</button>
-        <button type="reset">Esborrar</button>
-      </div>
-    </form>
-  </main>
+            <div class="form-group">
+                <label for="comentaris">Comentaris</label>
+                <textarea 
+                    id="comentaris" 
+                    name="comentaris"
+                    placeholder="Escriu els teus comentaris aquí..."></textarea>
+            </div>
+
+            <div class="button-group">
+                <button type="submit">✉️ Enviar</button>
+                <button type="reset">🗑️ Esborrar</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

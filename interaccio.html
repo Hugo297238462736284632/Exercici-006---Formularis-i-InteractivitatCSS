@@ -1,65 +1,130 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactivitat amb CSS</title>
-  <link rel="stylesheet" href="estils.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactivitat CSS</title>
+    <link rel="stylesheet" href="estils.css">
 </head>
 <body id="pagina-interaccio">
-  <nav>
-    <a href="index.html">Formulari</a>
-    <a href="interaccio.html">Interactivitat</a>
-  </nav>
-  <main>
-    <h1>Interactivitat sense JS</h1>
-
-    <!-- 1️⃣ Botó alternador (toggle menú) -->
-    <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
-    <label for="menu-toggle" class="menu-icon">
-      <span></span><span></span><span></span>
-    </label>
-    <ul class="menu">
-      <li><a href="#">Inici</a></li>
-      <li><a href="#">Serveis</a></li>
-      <li><a href="#">Contacte</a></li>
-    </ul>
-
-    <!-- 2️⃣ Pestanyes CSS -->
-    <div class="tabs">
-      <input type="radio" id="tab1" name="tab" checked hidden>
-      <label for="tab1">Pestanya 1</label>
-      <input type="radio" id="tab2" name="tab" hidden>
-      <label for="tab2">Pestanya 2</label>
-      <input type="radio" id="tab3" name="tab" hidden>
-      <label for="tab3">Pestanya 3</label>
-
-      <div class="tab-content content-1">
-        <p>Contingut de la pestanya 1.</p>
-      </div>
-      <div class="tab-content content-2">
-        <p>Contingut de la pestanya 2.</p>
-      </div>
-      <div class="tab-content content-3">
-        <p>Contingut de la pestanya 3.</p>
-      </div>
-    </div>
-
-    <!-- 3️⃣ Flip card (component extra) -->
-    <div class="flip-card-container">
-      <input type="checkbox" id="flip-toggle" hidden>
-      <label for="flip-toggle" class="flip-label">Gira la targeta</label>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <p>Front</p>
-          </div>
-          <div class="flip-card-back">
-            <p>Back</p>
-          </div>
+    <nav>
+        <div class="nav-content">
+            <label for="menu-toggle" class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <input type="checkbox" id="menu-toggle">
+            <ul>
+                <li><a href="index.html">📋 Formulari</a></li>
+                <li><a href="interaccio.html">⚡ Interactivitat</a></li>
+            </ul>
         </div>
-      </div>
+    </nav>
+
+    <div class="tabs-container" id="tabs">
+        <h2 class="section-title">📑 Pestanyes CSS amb :has()</h2>
+        
+        <input type="radio" name="tab" id="tab1" class="tab-input" checked>
+        <input type="radio" name="tab" id="tab2" class="tab-input">
+        <input type="radio" name="tab" id="tab3" class="tab-input">
+
+        <div class="tab-labels">
+            <label for="tab1" class="tab-label">🏠 Inici</label>
+            <label for="tab2" class="tab-label">📚 Informació</label>
+            <label for="tab3" class="tab-label">📧 Contacte</label>
+        </div>
+
+        <div class="tab-content content-1">
+            <h3>Benvingut!</h3>
+            <p>Aquesta és la pestanya d'inici. Aquí pots trobar informació general sobre el projecte de formularis i interactivitat amb CSS.</p>
+            <p>Aquest projecte demostra com crear components interactius utilitzant només HTML i CSS, sense necessitat de JavaScript.</p>
+            <p>Les pestanyes funcionen amb radio buttons ocults i el selector <code>:has()</code> que detecta quin radio està marcat.</p>
+        </div>
+
+        <div class="tab-content content-2">
+            <h3>Informació del projecte</h3>
+            <p>Aquest projecte inclou les següents característiques:</p>
+            <ul>
+                <li>✅ Formulari personalitzat amb validacions amb RegEx</li>
+                <li>✅ Pestanyes CSS amb selector :has()</li>
+                <li>✅ Carousel amb radio buttons</li>
+                <li>✅ Menú mòbil amb checkbox toggle</li>
+                <li>✅ Més de 7 transicions i animacions</li>
+                <li>✅ Layout 100% Flexbox</li>
+                <li>✅ Disseny responsiu mobile-first</li>
+            </ul>
+            <p>Tot implementat amb HTML i CSS pur, sense una sola línia de JavaScript!</p>
+        </div>
+
+        <div class="tab-content content-3">
+            <h3>Contacte</h3>
+            <p>Per a més informació sobre aquest projecte, pots consultar el formulari a la pàgina principal.</p>
+            <p>Totes les funcionalitats estan implementades amb CSS pur, utilitzant selectors avançats com:</p>
+            <ul>
+                <li><code>:has()</code> - Per detectar estats dels elements fills</li>
+                <li><code>:checked</code> - Per inputs seleccionats</li>
+                <li><code>:focus</code> - Per elements amb focus</li>
+                <li><code>:valid</code> i <code>:invalid</code> - Per validacions</li>
+                <li><code>::after</code> i <code>::before</code> - Pseudoelements</li>
+            </ul>
+        </div>
     </div>
-  </main>
+
+    <div class="carousel-container" id="carousel">
+        <h2 class="section-title">🎠 Carousel CSS</h2>
+        
+        <input type="radio" name="slide" id="slide1" class="carousel-input" checked>
+        <input type="radio" name="slide" id="slide2" class="carousel-input">
+        <input type="radio" name="slide" id="slide3" class="carousel-input">
+
+        <div class="carousel-slides">
+            <div class="carousel-slide slide-1">
+                <div class="slide-content">
+                    <h3>Slide 1</h3>
+                    <p>Primer component del carousel</p>
+                </div>
+            </div>
+            <div class="carousel-slide slide-2">
+                <div class="slide-content">
+                    <h3>Slide 2</h3>
+                    <p>Segon component del carousel</p>
+                </div>
+            </div>
+            <div class="carousel-slide slide-3">
+                <div class="slide-content">
+                    <h3>Slide 3</h3>
+                    <p>Tercer component del carousel</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-controls">
+            <label for="slide1" class="carousel-dot" title="Slide 1"></label>
+            <label for="slide2" class="carousel-dot" title="Slide 2"></label>
+            <label for="slide3" class="carousel-dot" title="Slide 3"></label>
+        </div>
+    </div>
+
+    <div class="flip-container">
+        <h2 class="section-title">🃏 Flip Card</h2>
+        
+        <input type="checkbox" id="flip-toggle" class="flip-input">
+        
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>Front</h3>
+                    <p>Clica per girar la carta</p>
+                    <label for="flip-toggle" class="flip-button">🔄 Girar</label>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Darrere</h3>
+                    <p>Aquesta és la part posterior de la carta!</p>
+                    <label for="flip-toggle" class="flip-button">🔙 Tornar</label>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
